@@ -1,0 +1,70 @@
+Subsystems:
+    1-Admin:
+        A)Contained Classes
+            1-AdminEntity
+            2-AdminController
+            3-AdminView
+        B)Provided Interfaces
+            1-Login: 
+                Log in to Admin's account Service
+            2-Manage Available Products: 
+                Manage Vending Machine Services For Logged Admin
+    2-Products Stock:
+        A)Contained Classes
+            1-ProductEntity
+            2-CookingMaterialEntity
+        B)Provided Interfaces
+            1-Manage Stock: 
+                Manage Vending Machine Stock Services For Admin
+                (Save, Delete Products & Update their cooking material)
+            2-Withdraw Product:
+                Delete Bought Products From Stock Service For 
+                dispense operation by Customer
+    3-El-Abd On The Go:
+        A)Contained Classes
+            1-AlAbdView
+        B)Provided Interfaces
+            1-Order Dessert: 
+                Order Dessert Service For Customer
+				(get Validation Code for the order,Show Current 
+				Available Desserts & Request Available 
+				Dessert, Pay For it By Credit Card Services For Buyer) 
+            2-Manage Order Session:
+                Manage Order Service For Order Owner
+                (Dispense Product Or Cancel Order)
+	4-VendingMachine:
+		A)Contained Classes
+            1-VendingMachine
+            2-ProxyVendingMachine
+            3-RealVendingMachine
+            4-State
+            5-IdleState
+            6-HasOrderState
+        B)Provided Interfaces
+            1-Use Vending Machine: 
+				Use Vending Machine Services For Application 
+				(Make Order, Dispense Product & Cancel Request)
+    5-Credit Card:
+        A)Contained Classes
+            1-CreditCard
+        B)Provided Interfaces
+            1-Discount Card Balance: 
+                Authorize & Discount Balance For Credit Card Account 
+                Service For the Vending Machine
+a)Such Decomposition Main Goal is to make Closely Directly-Dependent
+Classes are in single subsystem & Loosely Indirectly-Dependent Classes
+Are in Different Subsystems & Communicate with each other through their 
+Subsystems interfaces to maximize Dependencies in Subsystems Which Increase
+Cohesion & minimize Dependencies Across Subsystems Which Decrease Coupling
+
+b)
+1-Admin: Low Coupling as Depend on single subsystem & 
+medium Cohesion As Depend on single other Subsystem
+2-Products Stock: Medium Coupling As two Subsystems Depend on it
+& High Cohesion As Doesn't Depend on any other subsystem 
+3-El-Abd On The Go: low Coupling As Depend on single Subsystem
+& medium Cohesion As Depend on  single other Subsystem
+4-VendingMachine: High Coupling one Subsystem Depend on it & it Depend 
+on two Subsystems & medium Cohesion As Depend on two other subsystems
+5-Credit Card: Low Coupling as a single subsystem depend on it 
+& High Cohesion As Doesn't Depend on any other subsystem 
